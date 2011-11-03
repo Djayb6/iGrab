@@ -1,0 +1,21 @@
+-- iGrab - Copy Siri files and other stuff to the ~/Documents folder of iGrab. --
+
+- Requirements: 
+	- an iPhone 4S
+	- a Provisioning Profile
+	- XCode 4.2 with iOS 5.0 SDK + iTunes with iTunes File Sharing enabled (optional).
+	
+Compile the app with your selected iPhone 4S and run it. After a few minutes, if everything went fine,
+you should get a white screen and an alert, otherwise a red screen and another alert. 
+
+To transfer the files to your Mac, either use iTunes with iTunes File Sharing enabled or use the 
+Organizer in XCode (Window > Organizer > select your iPhone 4S > Applications tab > iGrab 1.0 > Download).
+
+As all the files are copied in the same folder, you will need SiriHelper to sort them.
+
+- Notes:
+	- This app just allows you to get some files located in /System/Library directory. Most of the files 
+are Siri-related, but certain files may be useless. ("Assistant" is the keyword for Siri). 
+	- Obviously, you will not be able to communicate with Siri's server.
+	- You won't get a segfault when decaching the dyld_shared_cache with dyld_decache.
+	- @djayb6 on twitter if you have some questions.
