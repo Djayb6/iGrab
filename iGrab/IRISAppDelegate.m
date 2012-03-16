@@ -7,7 +7,7 @@
 //
 //  Copy files (some are Siri-related and others are useless) in ~/Documents folder of iGrab.
 //
-// Do not try to copy the whole filesystem, you could make your iDevice angry.
+//  Do not try to copy the whole filesystem, you could make your iDevice angry.
 
 #import "IRISAppDelegate.h"
 
