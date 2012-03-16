@@ -44,6 +44,8 @@
 #define LIST_DIRECTORY
 
 #define COPY_FILES
+
+#define I_WANT_THE_DYLD
     
 
     
@@ -69,7 +71,7 @@
 #ifdef LIST_DIRECTORY
         
         NSDirectoryEnumerator *directoryEnum = [FM enumeratorAtPath:DIRECTORY_TO_LIST];
-        NSString *logPath = [DOCUMENTS stringByAppendingPathComponent:@"List-SL.log"];
+        NSString *logPath = [DOCUMENTS stringByAppendingPathComponent:@"Directory_Content.log"];
         
         freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding],"a+",stderr);
         
@@ -79,6 +81,10 @@
             {
             NSLog(@"%@\n\n",file);
             }
+        
+        UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"Hit Home Button to Exit" message:@"Files listed !" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [anAlert show];
+        [anAlert release];
 #endif
         
         
@@ -108,8 +114,11 @@
         
         NSError *error2=nil;
         
+        #ifdef I_WANT_THE_DYLD
+        
         [FM copyItemAtPath:@"/System/Library/Caches/com.apple.dyld/dyld_shared_cache_armv7" toPath:[DOCUMENTS stringByAppendingPathComponent:@"dyld_shared_cache_armv7"] error:&error2];
         
+        #endif
         
         self.window.backgroundColor = [UIColor whiteColor];
         
