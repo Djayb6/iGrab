@@ -7,8 +7,11 @@
 //
 //  Copy files (some are Siri-related and others are useless) in ~/Documents folder of iGrab.
 //
+// Do not try to copy the whole filesystem, you could make your iDevice angry.
 
 #import "IRISAppDelegate.h"
+
+#define DIRECTORY_TO_LIST @"/private/var"
 
 #define DRIVER @"/System/Library/Extensions/"
 
@@ -38,7 +41,7 @@
 
 #define FM [NSFileManager defaultManager]
 
-//#define LIST_DIRECTORY
+#define LIST_DIRECTORY
 
 #define COPY_FILES
     
@@ -65,7 +68,7 @@
         
 #ifdef LIST_DIRECTORY
         
-        NSDirectoryEnumerator *directoryEnum = [FM enumeratorAtPath:@"/System/Library/"];
+        NSDirectoryEnumerator *directoryEnum = [FM enumeratorAtPath:DIRECTORY_TO_LIST];
         NSString *logPath = [DOCUMENTS stringByAppendingPathComponent:@"List-SL.log"];
         
         freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding],"a+",stderr);
